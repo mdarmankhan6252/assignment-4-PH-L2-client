@@ -12,12 +12,7 @@ const PopularBooks = () => {
       return <Loading />
    }
 
-   console.log(data.data)
-
    const books = data?.data.slice(0, 6)
-
-
-
 
    return (
       <div className="py-20">

@@ -25,7 +25,6 @@ const BookCard = ({ book }: { book: IBook }) => {
    const dummyImage = 'https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?_gl=1*1lgdopn*_ga*MTYxMDEwMDQzMS4xNzUwOTY3ODg5*_ga_8JE65Q40S6*czE3NTEzOTQ4ODkkbzMkZzEkdDE3NTEzOTQ5MjYkajIzJGwwJGgw'
 
 
-   console.log(date);
    const handleBorrowBook = async (id: string) => {
       const borrowData = {
          book: id,
@@ -34,9 +33,8 @@ const BookCard = ({ book }: { book: IBook }) => {
       };
 
       try {
-         const res = await createBorrow(borrowData).unwrap();
+         await createBorrow(borrowData).unwrap();
          toast.success('Book borrowed successfully');
-         console.log(res);
          navigate('/borrow-summary')
          refetch()
          borrowRefetch()

@@ -39,7 +39,6 @@ const AddBook = () => {
 
       try {
          const res = await createBook(bookData).unwrap();
-         console.log(res);
          form.reset();
          setGenre("")
          refetch()
