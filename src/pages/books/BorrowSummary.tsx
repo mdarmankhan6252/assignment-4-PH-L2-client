@@ -9,7 +9,6 @@ const BorrowSummary = () => {
   if (isLoading) return <Loading />;
   if (isError) return <p className="text-center py-10 text-red-500">Failed to load data</p>;
 
-  console.log(data);
 
   return (
     <div className="px-6 md:px-10 max-w-7xl mx-auto py-10">

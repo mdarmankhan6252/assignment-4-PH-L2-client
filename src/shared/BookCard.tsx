@@ -9,7 +9,7 @@ import { useCreateBorrowMutation, useGetBooksQuery, useGetBorrowSummaryQuery } f
 import { Badge, NonBinary, User } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { data, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 
 const BookCard = ({ book }: { book: IBook }) => {
@@ -29,7 +29,7 @@ const BookCard = ({ book }: { book: IBook }) => {
       const borrowData = {
          book: id,
          quantity,
-         dueDate: data,
+         dueDate: date,
       };
 
       try {
@@ -43,9 +43,6 @@ const BookCard = ({ book }: { book: IBook }) => {
          toast.error(err.data?.message || 'Something went wrong');
       }
    };
-
-
-
 
 
 
