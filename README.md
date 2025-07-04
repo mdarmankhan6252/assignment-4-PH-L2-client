@@ -1,69 +1,29 @@
-# React + TypeScript + Vite
+# 📚 Minimal Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional and minimal library management system built using **React**, **Redux Toolkit Query**, **TypeScript**, **Express.js**, and **MongoDB**. The system allows users to view, manage, and borrow books without authentication. Built with a clean UI, proper state management, and RESTful API integration.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔓 Public Access
+- No authentication is required
+- All pages and actions are publicly accessible
 
-## Expanding the ESLint configuration
+### 📘 Book Management
+- **List Books:** View all books in a tabular format
+- **Add Book:** Form to add new book details
+- **Edit Book:** Update existing book information
+- **Delete Book:** Remove a book with confirmation
+- **Borrow Book:** Borrow books via form input
+- **Availability Logic:** If `copies === 0`, book is marked as unavailable
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📗 Borrow System
+- **Borrow Form:** Input quantity and due date
+- **Validation:** Quantity cannot exceed available copies
+- **Auto Update:** Book marked unavailable if no copies left
+- **Redirection:** After successful borrow, redirects to borrow summary
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📊 Borrow Summary
+- **Aggregated View:** Total quantity borrowed per book
+- **Fields:** Book Title, ISBN, Total Borrowed Quantity
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
