@@ -9,7 +9,7 @@ import { useCreateBorrowMutation, useGetBooksQuery, useGetBorrowSummaryQuery } f
 import { Badge, NonBinary, User } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { data, useNavigate } from "react-router";
 
 
 const BookCard = ({ book }: { book: IBook }) => {
@@ -19,7 +19,7 @@ const BookCard = ({ book }: { book: IBook }) => {
    const [quantity, setQuantity] = useState<number>(1);
    const navigate = useNavigate();
    const { refetch } = useGetBooksQuery(undefined);
-   const { refetch: borrowRefetch} = useGetBorrowSummaryQuery(undefined);
+   const { refetch: borrowRefetch } = useGetBorrowSummaryQuery(undefined);
    const [createBorrow] = useCreateBorrowMutation();
 
    const dummyImage = 'https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?_gl=1*1lgdopn*_ga*MTYxMDEwMDQzMS4xNzUwOTY3ODg5*_ga_8JE65Q40S6*czE3NTEzOTQ4ODkkbzMkZzEkdDE3NTEzOTQ5MjYkajIzJGwwJGgw'
@@ -29,7 +29,7 @@ const BookCard = ({ book }: { book: IBook }) => {
       const borrowData = {
          book: id,
          quantity,
-         dueDate: date,
+         dueDate: data,
       };
 
       try {
@@ -41,7 +41,6 @@ const BookCard = ({ book }: { book: IBook }) => {
       } catch (error) {
          const err = error as { data?: { message?: string } };
          toast.error(err.data?.message || 'Something went wrong');
-         console.error(err);
       }
    };
 
